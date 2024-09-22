@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ user.username }}'s Profile</title>
+    <style>
+        .photo-grid {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .photo-item {
+            margin: 5px;
+        }
+        .photo-item img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ user.username }}'s Photos</h1>
+    <a href="{% url 'upload_photo' %}">Upload New Photo</a>
+    <div class="photo-grid">
+        {% for photo in photos %}
+        <div class="photo-item">
+            <img src="{{ photo.image.url }}" alt="{{ photo.caption }}">
+            <p>{{ photo.caption }}</p>
+            <p>Uploaded by: {{ photo.user.username }}</p>
+            <p>Likes: {{ photo.likes }}</p>
+            {% if user.is_authenticated %}
+                <form action="{% url 'like_photo' photo.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Like</button>
+                </form>
+            {% else %}
+                <p><a href="{% url 'account_login' %}">Log in</a> to like this photo.</p>
+            {% endif %}
+        </div>
+        
+        {% empty %}
+            <p>No photos uploaded yet.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        /* Basic CSS styling */
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Photo Sharing Site</h1>
+
+    <form action="{% url 'search_users' %}" method="get">
+        <input type="text" name="q" placeholder="Search users...">
+        <button type="submit">Search</button>
+    </form>
+    
+    <h2>Latest Photos</h2>
+    <div class="photo-grid">
+        {% for photo in latest_photos %}
+        <div class="photo-item">
+            <img src="{{ photo.image.url }}" alt="{{ photo.caption }}">
+            <p>{{ photo.caption }}</p>
+            <p>Uploaded by: {{ photo.user.username }}</p>
+            <p>Likes: {{ photo.likes }}</p>
+            {% if user.is_authenticated %}
+                <form action="{% url 'like_photo' photo.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Like</button>
+                </form>
+            {% else %}
+                <p><a href="{% url 'account_login' %}">Log in</a> to like this photo.</p>
+            {% endif %}
+        </div>
+        
+        {% endfor %}
+    </div>
+    <!-- Add navigation for Next and Previous if needed -->
+
+    <h2>Most Liked Photos</h2>
+    <div class="photo-grid">
+        {% for photo in most_liked_photos %}
+        <div class="photo-item">
+            <img src="{{ photo.image.url }}" alt="{{ photo.caption }}">
+            <p>{{ photo.caption }}</p>
+            <p>Uploaded by: {{ photo.user.username }}</p>
+            <p>Likes: {{ photo.likes }}</p>
+            {% if user.is_authenticated %}
+                <form action="{% url 'like_photo' photo.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Like</button>
+                </form>
+            {% else %}
+                <p><a href="{% url 'account_login' %}">Log in</a> to like this photo.</p>
+            {% endif %}
+        </div>
+        
+        {% endfor %}
+    </div>
+    <!-- Add navigation for Next and Previous if needed -->
+</body>
+</html>
