@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ user.username }}'s Profile</title>
-    <style>
-        .photo-grid {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .photo-item {
-            margin: 5px;
-        }
-        .photo-item img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-        }
-    </style>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %} 
+{% block title %}{{ user.username }}'s Profile{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/profile_css.css' %}">
+{% endblock %}
+{% block content %}
     <h1>{{ user.username }}'s Photos</h1>
-    <a href="{% url 'upload_photo' %}">Upload New Photo</a>
+    <a href="{% url 'upload_photo' %} " class="upload">Upload New Photo</a>
     <div class="photo-grid">
         {% for photo in photos %}
         <div class="photo-item">
@@ -30,7 +17,7 @@
             {% if user.is_authenticated %}
                 <form action="{% url 'like_photo' photo.id %}" method="post">
                     {% csrf_token %}
-                    <button type="submit">Like</button>
+                    <button type="submit" >Like</button>
                 </form>
             {% else %}
                 <p><a href="{% url 'account_login' %}">Log in</a> to like this photo.</p>
@@ -41,5 +28,4 @@
             <p>No photos uploaded yet.</p>
         {% endfor %}
     </div>
-</body>
-</html>
+{% endblock %}

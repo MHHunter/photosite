@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Photosite{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base_css.css' %}">
+    {% block extra_css %}{% endblock %}
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/logo.png' %}" alt="Photosite Logo" class="logo-image">
+            </a>
+            <span class="site-name">Photosite</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                    <li><a href="{% url 'logout' %}">Log out</a></li>
+                {% else %}
+                    <li><a href="http://127.0.0.1:8000/accounts/signup/">Sign up</a></li>
+                    <li><a href="http://127.0.0.1:8000/accounts/login/">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <aside>
+        <form action="{% url 'search_users' %}" method="get">
+            <input type="text" name="q" placeholder="Search users...">
+            <button type="submit">Search</button>
+        </form>
+    </aside>
+
+    <main>
+        {% block content %}
+        <!-- Page-specific content will go here -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2024 Photosite. Mohammad Hossein Mohammdai.</p>
+    </footer>
+</body>
+</html>

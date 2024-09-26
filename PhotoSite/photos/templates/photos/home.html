@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-    <style>
-        /* Basic CSS styling */
-    </style>
-</head>
-<body>
-    <h1>Welcome to the Photo Sharing Site</h1>
-
-    <form action="{% url 'search_users' %}" method="get">
-        <input type="text" name="q" placeholder="Search users...">
-        <button type="submit">Search</button>
-    </form>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}home{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home_css.css' %}">
+{% endblock %}
+{% block content %}
     
     <h2>Latest Photos</h2>
     <div class="photo-grid">
@@ -56,6 +48,5 @@
         
         {% endfor %}
     </div>
-    <!-- Add navigation for Next and Previous if needed -->
-</body>
-</html>
+   
+    {% endblock %}

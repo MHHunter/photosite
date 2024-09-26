@@ -1,0 +1,30 @@
+.photo-grid {
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    gap: 20px; /* Space between grid items */
+    margin-bottom: 40px; /* Space below each photo grid section */
+}
+
+.photo-item {
+    background-color: #fff; /* Background color for each photo item */
+    border: 1px solid #ccc; /* Light border around each item */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Inner padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.2s; /* Smooth scaling on hover */
+}
+
+.photo-item:hover {
+    transform: scale(1.05); /* Scale up slightly on hover */
+}
+
+.photo-item img {
+    max-width: 100%; /* Responsive image */
+    border-radius: 5px; /* Match image corners to item */
+}
+
+h2 {
+    margin: 20px 0; /* Margin above and below section headers */
+    font-size: 28px; /* Increase font size for section headers */
+    color: #333; /* Color for section headers */
+}

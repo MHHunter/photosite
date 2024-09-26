@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ user.username }}'s Profile</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %} 
+{% block title %}{{ user.username }}'s Profile{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/profile_css.css' %}">
+{% endblock %}
+{% block content %}
     <h1>{{ user.username }}'s Public Photos</h1>
     <div class="photo-grid">
         {% for photo in photos %}
@@ -26,5 +27,4 @@
             <p>This user hasn't uploaded any public photos yet.</p>
         {% endfor %}
     </div>
-</body>
-</html>
+{% endblock %}

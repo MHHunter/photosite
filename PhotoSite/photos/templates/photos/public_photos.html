@@ -11,6 +11,7 @@
     <div class="photo-grid">
         <div class="photo-item">
             <img src="{{ photo.image.url }}" alt="{{ photo.caption }}">
+            <p>{{ photo.user.username }}</p>
             <p>{{ photo.caption }}</p>
             <p>Uploaded by: {{ photo.user.username }}</p>
             <p>Likes: {{ photo.likes }}</p>

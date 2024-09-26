@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    min-height: 100vh; /* Ensure the body takes the full height */
+}
+
+header {
+    position: fixed; /* Keep the header fixed at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+aside {
+    position: fixed; /* Keep the sidebar fixed */
+    top: 80px; /* Adjust to sit below the header */
+    left: 0;
+    width: 200px;
+    height: calc(100vh - 80px); /* Make it full height minus the header */
+    padding: 1rem;
+    background-color: #f4f4f4;
+    overflow-y: auto; /* Add scroll if content exceeds height */
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+    width: 100%;
+    position: relative; /* Keep it at the bottom of the page */
+    margin-top: auto; /* Push it to the bottom of the page */
+}
+
+main {
+    margin-left: 220px; /* Leave space for the sidebar */
+    padding: 20px;
+    flex-grow: 1; /* Allow main to take up available space */
+    margin-top: 80px; /* Add margin to avoid overlap with header */
+    padding-bottom: 60px; /* Add padding to prevent overlap with footer */
+}
+
+aside form {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 20px; /* Space below the form */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Rounded corners */
+    overflow: hidden; /* Prevent overflow from rounded corners */
+    background-color: #fff; /* Background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+aside form input[type="text"] {
+    border: none; /* Remove default border */
+    padding: 10px; /* Add padding */
+    flex-grow: 1; /* Allow the input to take available space */
+    font-size: 16px; /* Increase font size */
+    outline: none; /* Remove outline on focus */
+}
+
+aside form input[type="text"]::placeholder {
+    color: #aaa; /* Placeholder color */
+}
+
+aside form button {
+    background-color: #333; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove default border */
+    padding: 10px 15px; /* Padding for the button */
+    cursor: pointer; /* Change cursor on hover */
+    font-size: 16px; /* Font size for the button */
+    transition: background-color 0.3s; /* Smooth background change */
+}
+
+aside form button:hover {
+    background-color: #555; /* Darker shade on hover */
+}
+
+.logo {
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Center items vertically */
+}
+
+.logo-image {
+    height: 60px; /* Adjust height for the logo */
+    margin-right: 10px; /* Space between logo and site name */
+}
+
+.site-name {
+    font-size: 24px; /* Increase font size for the site name */
+    font-family: 'Arial', sans-serif; /* Change to a fancy font */
+    color: white; /* Set text color */
+    font-weight: bold; /* Make the text bold */
+}
