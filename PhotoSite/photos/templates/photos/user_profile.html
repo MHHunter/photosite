@@ -18,9 +18,12 @@
                     {% csrf_token %}
                     <button type="submit">Like</button>
                 </form>
+                
             {% else %}
                 <p><a href="{% url 'account_login' %}">Log in</a> to like this photo.</p>
             {% endif %}
+            
+
         </div>
         
         {% empty %}

@@ -1,8 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Photo
 from .forms import PhotoUploadForm
 from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
 
 @login_required
 def upload_photo(request):
@@ -36,8 +39,7 @@ def home(request):
         'most_liked_photos': most_liked_photos,
     })
 
-from django.http import HttpResponseRedirect
-from django.urls import reverse
+
 
 @login_required
 def like_photo(request, photo_id):
@@ -56,3 +58,12 @@ def user_profile(request, username):
     user = User.objects.get(username=username)
     photos = Photo.objects.filter(user=user, visibility='public')
     return render(request, 'photos/user_profile.html', {'user': user, 'photos': photos})
+
+
+@login_required
+def delete_photo(request, photo_id):
+    photo = get_object_or_404(Photo, id=photo_id, user=request.user)
+    if request.method == "POST":
+        photo.delete()
+        return redirect('home')  # or redirect to another page as needed
+    return redirect('user_profile', username=request.user.username)

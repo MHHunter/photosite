@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 {% load static %} 
-{% block title %}{{ user.username }}'s Profile{% endblock %}
+{% block title %}search{% endblock %}
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/profile_css.css' %}">
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
 {% endblock %}
 {% block content %}
-    <h1>Search Results for "{{ query }}"</h1>
+    <h1 class="h1">Search Results for "{{ query }}"</h1>
     {% if users %}
-        <ul>
+        <ul class="ul">
             {% for user in users %}
-                <li><a href="{% url 'user_profile' user.username %}">{{ user.username }}</a></li>
+                <li class="li"><a class="a" href="{% url 'user_profile' user.username %}">{{ user.username }}</a></li>
             {% endfor %}
         </ul>
     {% else %}
-        <p>No users found.</p>
+        <p class="p">No users found.</p>
     {% endif %}
 {% endblock %}

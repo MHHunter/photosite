@@ -1,0 +1,76 @@
+/* General styling for the container */
+.div {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 30px;
+    background-color: #f7f9fc;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+.h2 {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Form styling */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Input field styling */
+.form input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form input:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Submit button styling */
+.button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Additional styling for responsiveness */
+@media (max-width: 600px) {
+    .div {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .h2 {
+        font-size: 22px;
+    }
+
+    .button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}

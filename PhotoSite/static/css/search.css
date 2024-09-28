@@ -1,0 +1,77 @@
+/* General container styling */
+.content {
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styling */
+.h1 {
+    text-align: center;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Unordered list styling */
+.ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+}
+
+/* List item styling */
+.li {
+    margin: 10px 0; /* Space between items */
+}
+
+/* Link styling */
+.a {
+    display: block; /* Make the entire list item clickable */
+    text-decoration: none;
+    color: #007BFF; /* Blue color for links */
+    font-size: 18px;
+    padding: 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.a:hover {
+    background-color: #f0f8ff; /* Light background on hover */
+    color: #0056b3; /* Darker color on hover */
+}
+
+/* No users found message styling */
+.p {
+    text-align: center;
+    font-size: 18px;
+    color: #666; /* Grey color for the message */
+    margin-top: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .content {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .h1 {
+        font-size: 28px;
+    }
+
+    .li {
+        margin: 8px 0; /* Reduce margin for smaller screens */
+    }
+
+    .a {
+        font-size: 16px; /* Adjust font size for links */
+    }
+
+    .p {
+        font-size: 16px; /* Adjust font size for message */
+    }
+}

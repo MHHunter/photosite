@@ -1,0 +1,83 @@
+/* General styling for the password reset container */
+.password-reset-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+.password-reset-container h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form input styling */
+.password-reset-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.password-reset-container form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Button styling */
+.password-reset-container form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.password-reset-container form button:hover {
+    background-color: #45a049;
+}
+
+/* Link styling */
+.password-reset-container p {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.password-reset-container a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.password-reset-container a:hover {
+    text-decoration: underline;
+}
+
+/* Additional styling for responsiveness */
+@media (max-width: 600px) {
+    .password-reset-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .password-reset-container h2 {
+        font-size: 20px;
+    }
+
+    .password-reset-container form button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
