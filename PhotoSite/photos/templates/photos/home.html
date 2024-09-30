@@ -10,7 +10,9 @@
     <div class="photo-grid">
         {% for photo in latest_photos %}
         <div class="photo-item">
-            <img src="{{ photo.image.url }}" alt="{{ photo.caption }}">
+            <a href="{% url 'view_photo_by_id' id=photo.id %}">
+                <img src="{{ photo.image.url }}" alt="{{ photo.caption }}">
+            </a>
             <p>{{ photo.caption }}</p>
             <p>Uploaded by: {{ photo.user.username }}</p>
             <p>Likes: {{ photo.likes }}</p>
@@ -32,14 +34,16 @@
     <div class="photo-grid">
         {% for photo in most_liked_photos %}
         <div class="photo-item">
-            <img src="{{ photo.image.url }}" alt="{{ photo.caption }}">
+            <a href="{% url 'view_photo_by_id' id=photo.id %}">
+                <img src="{{ photo.image.url }}" alt="{{ photo.caption }}">
+            </a>
             <p>{{ photo.caption }}</p>
             <p>Uploaded by: {{ photo.user.username }}</p>
             <p>Likes: {{ photo.likes }}</p>
             {% if user.is_authenticated %}
                 <form action="{% url 'like_photo' photo.id %}" method="post">
                     {% csrf_token %}
-                    <button type="submit">Like</button>
+                    <button type="submit" >Like</button>
                 </form>
             {% else %}
                 <p><a href="{% url 'account_login' %}">Log in</a> to like this photo.</p>

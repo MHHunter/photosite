@@ -1,0 +1,60 @@
+/* Center the image and set a uniform size */
+.photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+/* Add some styling for the image */
+.photo-container img {
+    max-width: 400px; /* Standard size */
+    max-height: 400px;
+    object-fit: cover; /* Ensures all images maintain aspect ratio and fit inside the container */
+    border-radius: 10px; /* Rounded corners for a more modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease; /* Animation on hover */
+}
+
+.photo-container img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Likes and caption styling */
+.likes {
+    font-size: 16px;
+    color: #4b4b4b;
+    margin: 10px 0;
+}
+
+.caption {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Username and upload date */
+.photo-details {
+    color: #777;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Back to Home button styling */
+.back-home {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.back-home:hover {
+    background-color: #0056b3;
+}

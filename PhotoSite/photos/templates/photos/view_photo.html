@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}home{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/view_photo.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="photo-container">
+        <img src="{{ photo.image.url }}" alt="{{ photo.caption }}">
+        <p class="likes">Likes: {{ photo.likes }}</p>
+        <p class="caption">{{ photo.caption }}</p>
+        <p class="photo-details">Uploaded by: {{ photo.user.username }} on {{ photo.uploaded_at }}</p>
+        <a href="{% url 'home' %}" class="back-home">Back to Home</a>
+    </div>
+{% endblock %}

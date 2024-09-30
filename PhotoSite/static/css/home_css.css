@@ -28,3 +28,13 @@ h2 {
     font-size: 28px; /* Increase font size for section headers */
     color: #333; /* Color for section headers */
 }
+
+button {
+    padding: 10px 15px;
+    background-color: #28a745; /* Green background for the like button */
+    color: #fff; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}

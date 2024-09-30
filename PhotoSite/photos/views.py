@@ -28,6 +28,10 @@ def upload_photo(request):
         form = PhotoUploadForm()
     return render(request, 'photos/upload_photo.html', {'form': form})
 
+def view_photo_by_id(request, id):
+    photo = get_object_or_404(Photo, id=id, visibility='public')  # Ensure only public photos are accessible by ID
+    return render(request, 'photos/view_photo.html', {'photo': photo})
+
 
 @login_required
 def profile(request):

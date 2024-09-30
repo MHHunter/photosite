@@ -26,7 +26,9 @@
     <div class="photo-grid">
         {% for photo in photos %}
         <div class="photo-item">
-            <img src="{{ photo.image.url }}" alt="{{ photo.caption }}">
+            <a href="{% url 'view_photo_by_id' id=photo.id %}">
+                <img src="{{ photo.image.url }}" alt="{{ photo.caption }}">
+            </a>
             <p>{{ photo.caption }}</p>
             <p>Uploaded by: {{ photo.user.username }}</p>
             <p>Likes: {{ photo.likes }}</p>
@@ -45,7 +47,6 @@
                 <p><a href="{% url 'account_login' %}">Log in</a> to like this photo.</p>
             {% endif %}
         </div>
-        
         {% empty %}
             <h3 >No photos uploaded yet.</h3>
         {% endfor %}

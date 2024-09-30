@@ -4,6 +4,7 @@ from .views import delete_photo
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('photo/<int:id>/', views.view_photo_by_id, name='view_photo_by_id'),
     path('accounts/profile/', views.profile, name='profile'),
     path('upload/', views.upload_photo, name='upload_photo'),
     path('public/', views.public_photos, name='public_photos'),
@@ -11,4 +12,5 @@ urlpatterns = [
     path('search/', views.search_users, name='search_users'),
     path('user/<str:username>/', views.user_profile, name='user_profile'),
     path('photo/delete/<int:photo_id>/', delete_photo, name='delete_photo'),
+    
 ]
