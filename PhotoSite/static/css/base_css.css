@@ -134,3 +134,36 @@ aside form button:hover {
     color: white; /* Set text color */
     font-weight: bold; /* Make the text bold */
 }
+
+/* Styling for the error message container */
+.error-message {
+    list-style-type: none; /* Remove bullet points */
+    padding: 10px;        /* Add padding around the container */
+    margin: 20px 0;      /* Add margin to the top and bottom */
+    border-radius: 5px;  /* Rounded corners */
+}
+
+/* Styling for the individual error message items */
+.error-message li.error {
+    background-color: #f8d7da; /* Light red background for errors */
+    color: #721c24;            /* Dark red text color */
+    padding: 10px;             /* Padding inside the message */
+    font-family: Arial, sans-serif; /* Font family */
+    font-size: 16px;           /* Font size */
+    border-radius: 5px;       /* Rounded corners */
+}
+
+/* Styling for the individual success message items */
+.error-message li.success {
+    background-color: #d4edda; /* Light green background for success */
+    color: #155724;            /* Dark green text color */
+    padding: 10px;             /* Padding inside the message */
+    font-family: Arial, sans-serif; /* Font family */
+    font-size: 16px;           /* Font size */
+    border-radius: 5px;       /* Rounded corners */
+}
+
+/* Optional: Add hover effect for better UX */
+.error-message li:hover {
+    cursor: pointer;            /* Change cursor to pointer */
+}

@@ -5,10 +5,18 @@ from .forms import PhotoUploadForm
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib import messages
+from allauth.account.models import EmailAddress
 
 
 @login_required
 def upload_photo(request):
+    email_address = EmailAddress.objects.filter(user=request.user, verified=True)
+    if not email_address.exists():
+        messages.error(request, "You must confirm your email before uploading photos.")
+        return redirect('profile')
+
+
     if request.method == 'POST':
         form = PhotoUploadForm(request.POST, request.FILES)
         if form.is_valid():

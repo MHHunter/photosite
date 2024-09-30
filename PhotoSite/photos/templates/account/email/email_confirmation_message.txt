@@ -1,0 +1,5 @@
+
+PhotoSite an account generated via your email
+Hello {{ user.username }},
+Please click the link below to confirm your email address:
+{{ activate_url }}
