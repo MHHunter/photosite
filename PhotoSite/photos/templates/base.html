@@ -23,8 +23,8 @@
                 <li><a href="{% url 'home' %}">Home</a></li>
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'profile' %}">Profile</a></li>
-                    <li><a href="{% url 'logout' %}">Log out</a></li>
-                {% else %}
+                    <li><form method="post" action="{% url 'logout' %}">{% csrf_token %} <button type="submit" class="btn btn-link">Logout</button></form></li>
+                    {% else %}
                     <li><a href="{% url 'account_signup' %}">Sign up</a></li>
                     <li><a href="{% url 'account_login' %}">Login</a></li>
                 {% endif %}
